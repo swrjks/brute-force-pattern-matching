@@ -1,0 +1,241 @@
+/* Apply a bluish-whitish gradient background to the page */
+body {
+    font-family: 'Roboto Mono', monospace;
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    display: flex;
+    flex-direction: column; /* Keeps elements stacked on smaller screens */
+    justify-content: center; /* Push content to the right */
+    align-items: center;
+    background-color: rgb(175, 219, 233);
+    background-size: cover;
+    padding-right: 20px; /* Add padding for spacing from the edge */
+}
+
+/* Semi-transparent container for the simulation */
+.simulation-container {
+    width: 70vw;
+    min-width: 600px;
+    max-width: 1000px;
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.4);
+    border-radius: 15px;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    margin-left: auto; /* Push the container to the right */
+    margin-right: 90px;   /* Align to the right edge */
+}
+
+/* Input container for text and pattern */
+.input-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap; /* Prevents overflow on smaller screens */
+    gap: 15px; /* Space between elements */
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+/* Labels for inputs */
+label {
+    font-size: 16px;
+    font-weight: 600;
+    color: #222;
+}
+
+/* Input box styling */
+.input-box {
+    flex: 1; /* Makes input boxes equal width */
+    min-width: 200px; /* Ensures usability on smaller screens */
+    max-width: 300px;
+    padding: 10px 15px;
+    font-size: 16px;
+    font-weight: bold; /* Make text more readable */
+    color: #222; /* Darker text for better visibility */
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    border-radius: 20px; /* Rounded corners */
+    background: rgba(255, 255, 255, 0.2); /* Transparent effect */
+    backdrop-filter: blur(10px); /* Subtle blur effect */
+    outline: none;
+    transition: all 0.3s ease-in-out;
+}
+
+.input-box::placeholder {
+    color: rgba(0, 0, 0, 0.5); /* Darker placeholder text */
+}
+
+.input-box:focus {
+    border-color: rgba(255, 255, 255, 0.6);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); /* Soft shadow for visibility */
+    background: rgba(255, 255, 255, 0.3); /* Slightly brighter background */
+}
+
+/* Display areas for text and pattern */
+#topTextDisplay, #topPatternDisplay, #textDisplay {
+    font-size: clamp(18px, 2vw, 24px); /* Responsive text size */
+    letter-spacing: 3px;
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    position: relative;
+}
+
+/* Headings */
+h3 {
+    font-weight: normal;
+    font-size: 14px;
+}
+
+/* Styling for each character container */
+.char-container {
+    display: inline-block;
+    text-align: center;
+    position: relative;
+    margin: 3px;
+}
+
+/* Styling for the index above each character */
+.index-box {
+    font-size: 14px;
+    position: absolute;
+    top: -20px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+/* Styling for the character boxes */
+.char-box {
+    display: inline-block;
+    width: 30px;
+    height: 40px;
+    text-align: center;
+    vertical-align: middle;
+    border: 1px solid black;
+    margin: 3px;
+    line-height: 40px;
+    font-weight: bold;
+}
+
+/* Highlight colors */
+.yellow { background-color: yellow; }
+.green { background-color: lightgreen; }
+
+/* Status messages styling */
+#statusDisplay, #patternStatus, #incrementIndex, #foundIndices {
+    margin-top: 10px;
+    font-size: 16x;  /* Unified font size */
+    font-weight: bold;
+    color: #222;
+}
+
+/* Button styling */
+.button {
+    width: 50%;
+    min-width: 150px;
+    max-width: 250px;
+    padding: 12px 16px;
+    border: none;
+    outline: none;
+    background-color: rgb(7, 136, 22);
+    color: #eee;
+    border-radius: 7px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.25s ease-out;
+}
+
+.button:hover {
+    transform: translateY(-3px);
+}
+
+/* Responsive adjustments for different screen sizes */
+@media (max-width: 1024px) {
+    .simulation-container {
+        width: 80vw;
+    }
+    .input-box {
+        width: 60%;
+    }
+}
+
+@media (max-width: 768px) {
+    .simulation-container {
+        width: 90vw;
+        min-width: unset; /* Allows full-width use */
+    }
+    .input-box {
+        width: 70%;
+    }
+    .button {
+        width: 70%;
+    }
+}
+
+@import url('https://fonts.googleapis.com/css?family=Roboto:300,400,400i,500');
+
+* {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    text-decoration: none;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    display: flex;
+}
+
+/* Sidebar - Always Visible */
+.sidebar {
+    position: fixed;
+    left: 0;
+    width: 250px;
+    height: 100%;
+    background: #042331;
+}
+
+.sidebar header {
+    font-size: 22px;
+    color: white;
+    line-height: 70px;
+    text-align: center;
+    background: #063146;
+    user-select: none;
+}
+
+.sidebar ul a {
+    display: block;
+    height: 100%;
+    width: 100%;
+    line-height: 65px;
+    font-size: 20px;
+    color: white;
+    padding-left: 40px;
+    box-sizing: border-box;
+    border-bottom: 1px solid black;
+    border-top: 1px solid rgba(255,255,255,.1);
+    transition: 0.4s;
+}
+
+ul li:hover a {
+    padding-left: 50px;
+}
+
+.sidebar ul a i {
+    margin-right: 16px;
+}
+
+/* Remove Sidebar Toggle Button */
+#menuToggle {
+    display: none;
+}
+
+/* Main Content - Adjusted to Avoid Sidebar Overlap */
+main {
+    margin-left: 270px; /* Adjusted so content is not hidden behind the sidebar */
+    padding: 20px;
+    flex-grow: 1;
+}

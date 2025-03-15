@@ -1,0 +1,214 @@
+/* Import Ubuntu Mono Font */
+@import url('https://fonts.googleapis.com/css?family=Ubuntu+Mono');
+
+/* General Page Styling */
+body {
+    background-color: rgb(175, 219, 233);
+    background-size: cover;
+    font-family: 'Ubuntu Mono', monospace;
+    display: flex;
+    gap: 5px; 
+    justify-content: flex-end; /* Align elements to the right */
+    align-items: center; /* Centers vertically */
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+    overflow: hidden; /* Hide scrollbar from webpage */
+}
+
+/* Simulation Container */
+.simulation-container {
+    width: 34%;
+    max-width: 600px;
+    padding: 20px;
+    margin: 20px 40px 20px 40px;
+    background: rgba(255, 255, 255, 0.4); /* Glass effect */
+    border-radius: 15px;
+    backdrop-filter: blur(10px); /* Frosted glass effect */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    overflow: hidden;
+}
+
+/* Terminal Card */
+.card {
+    width: 550px;
+    height: 650px;
+    background-color: #000;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    position: relative;
+    align-self: auto;
+    margin: auto 0;
+    margin-left: 15px;
+}
+
+
+/* Terminal Header */
+.tools {
+    display: flex;
+    align-items: center;
+    padding: 9px;
+    background: black; /* Ensure it doesn’t look transparent */
+    position: relative;
+    z-index: 2; /* Ensures it stays above content */
+}
+
+.circle {
+    padding: 0 4px;
+}
+
+.box {
+    display: inline-block;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+}
+
+.red { background: #ff605c; }
+.yellow { background: #ffbd44; }
+.green { background: #00ca4e; }
+
+/* Terminal Body (Code Display) */
+.card__content {
+    flex-grow: 1;
+    padding: 5px 10px; /* Reduced top padding */
+    color: white;
+    font-size: 14px;
+    overflow: auto;
+    white-space: pre-wrap;
+    line-height: 1.4; /* Adjusted line height */
+    scrollbar-width: thin;
+    scrollbar-color: rgba(40, 40, 40, 0.85) rgba(20, 20, 20, 0.85);
+    
+    /* Ensures text starts immediately below the header */
+    margin-top: 0px; 
+    position: relative;
+}
+
+/* Scrollbar Customization */
+.card__content::-webkit-scrollbar {
+    width: 10px;
+}
+
+.card__content::-webkit-scrollbar-track {
+    background: rgba(30, 30, 30, 0.9);
+    border-radius: 50px;
+    margin: 10px;
+}
+
+.card__content::-webkit-scrollbar-thumb {
+    background: rgba(50, 50, 50, 0.9);
+    border-radius: 50px;
+    min-height: 30px;
+    min-width: 30px;
+}
+
+.card__content::-webkit-scrollbar-thumb:hover {
+    background: rgba(70, 70, 70, 0.95);
+}
+
+/* Syntax Highlighting */
+pre {
+    background: transparent !important;
+    color: white;
+    padding: 10px;
+    white-space: pre;
+    overflow: auto;
+    user-select: none;
+    pointer-events: none;
+}
+
+/* Fix Line Height & Padding for Readability */
+.token.comment { color: #8c8c8c; }
+.token.punctuation { color: #ffffff; }
+.token.keyword { color: #ff79c6; }
+.token.function { color: #8be9fd; }
+.token.string { color: #50fa7b; }
+.token.operator, .token.variable { color: #f8f8f2; }
+.token.number { color: #bd93f9; }
+
+/* Responsive Design */
+@media (max-width: 1200px) {
+    body {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .card {
+        width: 90%;
+        height: auto;
+    }
+
+    .simulation-container {
+        width: 90%;
+    }
+}
+
+@import url('https://fonts.googleapis.com/css?family=Roboto:300,400,400i,500');
+
+* {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    text-decoration: none;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    display: flex;
+}
+
+/* Sidebar - Always Visible */
+.sidebar {
+    position: fixed;
+    left: 0;
+    width: 250px;
+    height: 100%;
+    background: #042331;
+}
+
+.sidebar header {
+    font-size: 22px;
+    color: white;
+    line-height: 70px;
+    text-align: center;
+    background: #063146;
+    user-select: none;
+}
+
+.sidebar ul a {
+    display: block;
+    height: 100%;
+    width: 100%;
+    line-height: 65px;
+    font-size: 20px;
+    color: white;
+    padding-left: 40px;
+    box-sizing: border-box;
+    border-bottom: 1px solid black;
+    border-top: 1px solid rgba(255,255,255,.1);
+    transition: 0.4s;
+}
+
+ul li:hover a {
+    padding-left: 50px;
+}
+
+.sidebar ul a i {
+    margin-right: 16px;
+}
+
+/* Remove Sidebar Toggle Button */
+#menuToggle {
+    display: none;
+}
+
+/* Main Content - Adjusted to Avoid Sidebar Overlap */
+main {
+    margin-left: 270px; /* Adjusted so content is not hidden behind the sidebar */
+    padding: 20px;
+    flex-grow: 1;
+}
