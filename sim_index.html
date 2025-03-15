@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Brute Force String Matching Visualizer</title>
+  <link rel="stylesheet" href="sim_styles.css">
+  <link rel="stylesheet" href="sidebar.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
+</head>
+<body>
+  <div class="sidebar">
+    <header>Menu</header>
+    <ul>
+        <li><a href="index.html"><i class="fas fa-home"></i> Introduction</a></li>
+        <li><a href="algo_index.html"><i class="fas fa-code"></i> Algorithm</a></li>
+        <li><a href="sim_index.html"><i class="fas fa-play"></i> Simulation</a></li>
+        <li><a href="code_index.html"><i class="fas fa-code"></i> Code</a></li>
+
+    </ul>
+</div>
+
+  <div class="simulation-container">
+    <h2>Brute Force String Matching Visualizer</h2>
+    <br><br>
+    <!-- Wrapped labels and input boxes inside a flex container -->
+    <div class="input-container">
+      <label>Enter Text:</label>
+      <input type="text" id="textInput" class="input-box" oninput="updateDisplays()" maxlength="23">
+      
+      
+      <label>Enter Pattern:</label>
+      <input type="text" id="patternInput" class="input-box" oninput="updateDisplays()" maxlength="23">
+    </div>
+
+    <br><br>
+    
+    <h3>Text:</h3>  
+    <div id="topTextDisplay"></div>  
+    
+    <h3>Pattern:</h3>
+    <div id="topPatternDisplay"></div>  
+    
+    <br>
+    <button class="button" onclick="startSearch()">Start Search</button>  
+    <br><br>
+    
+    <div id="textDisplay"></div>  
+    
+    <h3 id="statusDisplay">Current index = </h3>
+    <h3 id="patternStatus">Pattern Status: </h3>
+    <h3 id="foundIndices">Pattern found at: </h3>  <!-- Updated Line -->
+  </div>
+  <script src="sim_script.js"></script>
+</body>
+</html>
