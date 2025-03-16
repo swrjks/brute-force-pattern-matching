@@ -126,9 +126,10 @@ h3 {
 /* Status messages styling */
 #statusDisplay, #patternStatus, #incrementIndex, #foundIndices {
     margin-top: 10px;
-    font-size: 16x;  /* Unified font size */
+    font-size: 16x; 
     font-weight: bold;
     color: #222;
+    display: none; /* Hide these by default */
 }
 
 /* Button styling */
