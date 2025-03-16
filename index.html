@@ -46,27 +46,28 @@
         </section>
 
         <section>
-            <h2>Algorithm Complexity</h2>
-            
-            <ul>
-                <li>
-                    <strong>Best Case: O(n)</strong> – Happens when mismatches occur early, allowing quick shifts.  
-                    <pre>
-        Text:    A B C D E F G H I J
-        Pattern: X Y Z
-                    </pre>
-                    The pattern immediately fails at the first character, leading to at most **n** comparisons.
-                </li>
-                <li>
-                    <strong>Worst Case: O(m × n)</strong> – Occurs when the pattern closely matches the text but fails at the last character.  
-                    <pre>
-        Text:    A A A A A A A A A B
-        Pattern: A A A A A
-                    </pre>
-                    The algorithm rechecks many positions, leading to **m × n** comparisons.
-                </li>
-            </ul>
-        </section>
+    <h2>Algorithm Complexity</h2>
+
+    <ul>
+        <li>
+            <strong>Best Case: O(n)</strong> – Happens when mismatches occur early, allowing quick shifts.  
+            <pre>
+    Text:    A B C D E F G H I J
+    Pattern: X Y Z
+            </pre>
+            The pattern immediately fails at the first character, leading to at most <strong>n</strong> comparisons.
+        </li>
+        <li>
+            <strong>Worst Case: O(m × n)</strong> – Occurs when the pattern closely matches the text but fails at the last character.  
+            <pre>
+    Text:    A A A A A A A A A B
+    Pattern: A A A A A
+            </pre>
+            The algorithm rechecks many positions, leading to <strong>m × n</strong> comparisons.
+        </li>
+    </ul>
+</section>
+
         
         
 
