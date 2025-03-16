@@ -52,7 +52,11 @@ function highlightPattern(start, length, color) {
 }
 
 function resetHighlight() {
-    document.querySelectorAll(".char-box").forEach(box => box.classList.remove("yellow", "green"));
+    document.querySelectorAll(".char-box").forEach(box => {
+        if (!box.classList.contains("green")) { // Keep green highlights
+            box.classList.remove("yellow");
+        }
+    });
 }
 
 let isSearching = false; // Prevent multiple clicks from glitching the animation
@@ -67,6 +71,11 @@ async function startSearch() {
     let statusDisplay = document.getElementById("statusDisplay");
     let patternStatus = document.getElementById("patternStatus");
     let foundIndices = document.getElementById("foundIndices");
+
+    // Show status messages only when simulation starts
+    statusDisplay.style.display = "block";
+    patternStatus.style.display = "block";
+    foundIndices.style.display = "block";
 
     statusDisplay.innerText = "Current index = 0";
     patternStatus.innerText = "Pattern Status: Searching...";
@@ -113,5 +122,6 @@ async function startSearch() {
 
     isSearching = false; // Allow new searches
 }
+
 
 updateDisplays();
