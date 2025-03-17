@@ -53,7 +53,7 @@ _____________________________________________
 | Batch       | 2023-2027                   |
 | Stream      | CSE                         |
 | Date        | 02-03-2025                  |
-| GitHub Link | github.com/swrjks           |
+| GitHub Link |                             |
 |___________________________________________|`;
     
         const preElement = document.createElement("pre");
